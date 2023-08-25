@@ -1,0 +1,913 @@
+@use 'sass:math'
+@use 'sass:color'
+
+@import config
+//@import 'blocks/**/*'
+@import ../../libs/normalize.css/normalize
+@import ../../libs/css-hamburgers/_sass/hamburgers/hamburgers
+@import ../../../node_modules/jquery-toast-plugin/src/jquery.toast
+@import ../../../node_modules/swiper/swiper-bundle.min
+
+html
+  font-size: $rem
+  overflow-x: hidden
+
+img
+  height: auto
+  max-width: 100%
+
+button
+  cursor: pointer
+
+body
+  font-family: 'Nunito Sans', sans-serif
+  background-color: #131921
+  position: relative
+  color: #ffffff
+  &::after
+    content: ""
+    background-image: url(../images/dist/bg-1.png)
+    background-repeat: repeat
+    opacity: 45%
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+  *
+    box-sizing: border-box
+
+@include container($c-width)
+
+.h2, .h3, .h4, .h5
+  margin: 0
+
+.h2
+  font-size: pxrem(40px)
+  span
+    color: $accent
+
+.h3
+  font-size: pxrem(35px)
+  span
+    color: $accent
+
+.h4
+  font-size: pxrem(28px)
+
+.h5
+  font-size: pxrem(22px)
+
+.btn
+  padding: 10px 40px
+  display: inline-block
+  position: relative
+  border-radius: 10px
+  background: $gradient
+  color: #ffffff
+  outline: none
+  border: none
+  font-weight: 600
+
+.hamburger--rotate
+  transition: transform .3s ease
+
+.hamburger--rotate.is-active
+  transform: rotate(90deg)
+
+.header__btn
+  padding: 10px 40px
+  color: #ffffff
+  display: inline-block
+  border-radius: 10px
+  margin: 0
+  border: none
+  background: $hdcolor
+  outline: none
+
+.--gradient
+  padding: 1px
+  background: linear-gradient(to right, #9ECA66, #5FB9AEBD)
+  border-radius: 10px
+  height: auto
+  display: inline-block
+
+.--text-center
+  text-align: center
+
+.wrapper
+  position: relative
+  z-index: 10
+
+.header
+  background-color: #1B2236
+  position: relative
+  padding: pxem(23px) 0
+  z-index: 20
+
+.footer
+  position: relative
+  z-index: 20
+  background-image: url(../images/dist/logo-2.png)
+  background-size: contain
+  background-position: right
+  background-repeat: no-repeat
+
+.--flex
+  display: flex
+  &.--wrap
+    flex-wrap: wrap
+
+//.header__site-logo
+//  margin-right: pxvw(128)
+
+.header__container
+  justify-content: space-between
+  align-items: center
+
+a
+  color: inherit
+  text-decoration: none
+
+.header__inner
+  align-items: center
+
+.header__menu-list
+  @include nlist
+  column-gap: pxem(30px)
+  .header__menu-item
+    &.active
+      color: $accent
+
+.header__logo-img
+  height: 50px
+
+.footer
+  background-color: #162031
+  padding: 45px 0 15px
+
+//.footer__row
+//  align-items: center
+
+.footer__col--logo
+  margin-top: 13px
+  margin-right: pxvw(122)
+
+.footer__col--right
+  @include col4
+  margin-left: auto
+  text-align: right
+  margin-top: 10px
+
+.footer__copyright
+  margin: 0
+  font-size: 12px
+  color: #9f9f9f
+
+.footer__col--menu
+  margin-right: pxvh(60)
+
+.footer__list
+  @include nlist
+
+.footer__item
+  margin-bottom: 10px
+  font-size: 12px
+  &:last-child
+    margin-bottom: 0
+
+.footer__pay-list
+  display: flex
+  justify-content: flex-end
+  @include nlist
+  column-gap: 20px
+  margin-bottom: 28px
+
+.footer__pay-item
+  flex: 0 0 auto
+
+.footer__pay-img
+  width: 30px
+  height: 30px
+
+.s-main
+  padding: 20px 0 20px
+
+.s-main__col--left
+  @include colopt(777px)
+
+.s-main__col--right
+  @include colopt(380px)
+
+.s-main__h2
+  margin-bottom: 30px
+
+.s-main__text
+  font-weight: 600
+  margin: 0
+
+.s-main__btn
+  margin-top: 20px
+
+.s-main__card
+  border-radius: 10px
+  padding: pxrem(30px) pxrem(20px)
+  background-image: url(../images/dist/card-1.png)
+  background-color: rgba(lightgray, 0.04)
+  background-blend-mode: overlay
+  background-repeat: no-repeat
+  background-position: center
+  background-size: cover
+  height: 100%
+
+.s-main__card--right
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+  justify-content: space-between
+  padding: 30px 10px
+
+.promocode
+  display: inline-flex
+  //border-radius: 6px
+  //background-color: #fff
+  //width: 332px
+  &__input
+    margin: 0
+    padding: 5px 20px 5px 20px
+    border-top: 3px dotted #9ECA66
+    border-left: 3px dotted #9ECA66
+    border-bottom: 3px dotted #9ECA66
+    border-radius: 6px 0 0 6px
+    font-weight: 800
+    font-size: pxem(40px)
+    //flex: 0 1 auto
+    max-width: 248px
+    //max-width: 100%
+    width: 100%
+  &__btn
+    outline: none
+    border: none
+    padding: 18px
+    border-radius: 0 6px 6px 0
+    font-size: pxem(22px)
+    color: #ffffff
+    font-weight: 700
+    background: linear-gradient(to right, #9ECA66, #5FB9AEBD)
+    //flex: 0 1 auto
+    //width: 100%
+
+.s-games
+  padding: 20px 0 50px
+
+.s-games__slide
+  border-radius: 10px
+  overflow: hidden
+  img
+    width: 100%
+    display: block
+
+
+
+.s-about__col
+  @include col6
+
+.s-about
+  background-image: url(../images/dist/about-composition.png)
+  background-position: 60% 0
+  background-repeat: no-repeat
+  background-size: contain
+  padding-top: 50px
+  padding-bottom: pxvh(300)
+  @include radial-bg(30%, auto, auto, 23%)
+  &__h3
+    text-align: center
+    margin-bottom: 30px
+
+.s-about__text
+  line-height: 1.4
+  margin-top: 0
+
+.s-exp
+  padding-bottom: 50px
+
+.s-exp__col
+  @include col6
+
+.s-exp__h4
+  text-align: center
+  margin-bottom: 40px
+
+.s-exp__list
+  @include nlist
+
+.s-exp__item
+  display: flex
+  align-items: center
+  margin-bottom: 50px
+  &:last-child
+    margin-bottom: 0
+  &::before
+    content: ""
+    @include bgimg("../images/dist/chips-1.png")
+    flex: 0 0 auto
+    margin-right: pxrem(20px)
+    border-radius: 10rem
+    box-shadow: 0px 0px 25px 0px rgba(229, 29, 29, 0.70)
+    width: pxrem(100px)
+    height: pxrem(100px)
+
+.s-exp__h5
+  margin-bottom: 15px
+
+.s-exp__text
+  margin: 0
+
+.s-reg
+  padding: 50px 0 50px
+  @include radial-bg(-10%, 15%, auto, auto)
+
+.s-reg__h2
+  margin-bottom: 30px
+  text-align: center
+
+.s-reg__row
+  margin: 0 -10px
+
+.s-reg__col
+  @include col6
+
+.s-reg__card
+  padding: 1px
+  border-radius: 10px
+  height: 100%
+  background: linear-gradient(to right, #9ECA66, #5FB9AEBD)
+
+.s-reg__text
+  margin: 0
+
+.s-reg__img
+  margin-top: pxrem(20px)
+  
+.s-reg__inner
+  display: flex
+  background-color: #131926
+  height: inherit
+  border-radius: inherit
+  padding: pxrem(30px) pxrem(60px) pxrem(23px) pxrem(30px)
+
+.s-reg__number
+  width: 50px
+  height: 50px
+  margin-top: 6px
+  background: $gradient
+  border-radius: 10rem
+  flex: 0 0 auto
+  font-size: pxem(30px)
+  font-weight: bold
+  display: flex
+  justify-content: center
+  align-items: center
+
+.s-reg__content
+  text-align: center
+
+.s-reg__h4
+  margin-bottom: 15px
+
+.s-use-promo
+  padding: 50px 0
+  background-image: url(../images/dist/use-promo-1.svg)
+  background-size: contain
+  background-position: center
+  background-repeat: no-repeat
+
+.s-use-promo__text
+  line-height: 1.4
+  margin: 0
+
+.s-use-promo__promocode
+  margin-top: 50px
+
+//.s-use-promo__col--right
+//  @include colopt(330px)
+
+.s-use-promo__img
+  display: block
+  width: pxrem(100px)
+
+.s-use-promo__h3
+  margin-bottom: 50px
+  text-align: center
+
+.s-use-promo__col--left
+  @include col6
+
+.s-use-promo__number
+  font-size: pxrem(110px)
+  margin-bottom: 30px
+  @include textgradient
+
+.s-use-promo__img
+  width: 136px
+  margin: auto
+
+
+.s-play__row
+  margin-top: 57px
+
+.s-play__col
+  @include col3
+
+.s-play__card
+  padding: 1px
+  background: $gradient
+  height: 100%
+  border-radius: 10px
+  text-align: center
+
+.s-play__inner
+  padding: 30px 15px
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: space-between
+  height: inherit
+  border-radius: inherit
+  background-color: #1A202E
+
+.s-play__h4
+  font-size: pxrem(26px)
+  margin-bottom: 20px
+
+.s-use-promo__number
+  white-space: nowrap
+
+
+
+
+.s-top-up
+  padding: 50px 0 50px
+
+.s-top-up__h3
+  margin-bottom: 30px
+  text-align: center
+
+.s-top-up__text
+  margin: 0
+  //margin-left: calc(100% / 2 - ($c-width / 2))
+  max-width: 900px
+  margin: auto
+
+.s-top-up__method-list
+  @include nlist
+  flex-wrap: wrap
+  column-gap: 40px
+  row-gap: 30px
+  max-width: 886px
+  margin: auto
+  display: flex
+  justify-content: space-between
+
+.s-top-up__method-item
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: space-between
+  text-align: center
+  font-size: pxrem(28px)
+  font-weight: 700
+
+.s-top-up__h4
+  margin-top: 30px
+  margin-bottom: 40px
+  text-align: center
+
+.s-top-up__h5
+  font-size: pxrem(26px)
+  @extend .s-top-up__h4
+  &.--s-m-t
+    margin-top: 100px
+
+.s-top-up__small
+  margin: 30px 0 0
+
+.s-top-up__method-number
+  @include textgradient
+  margin: 0
+
+.s-top-up__instruction-list
+  list-style: none
+  padding: 0
+  margin: 0
+  counter-reset: my-awesome-counter
+
+.s-top-up__instruction-item
+  counter-increment: my-awesome-counter
+
+.s-top-up__instruction-item
+  align-items: center
+  display: flex
+  margin-bottom: 20px
+  &::before
+    content: counter(my-awesome-counter)
+    margin-right: 20px
+    width: 50px
+    height: 50px
+    flex: 0 0 auto
+    display: flex
+    justify-content: center
+    font-size: pxrem(40px)
+    font-weight: 700
+    align-items: center
+    background: $gradient
+    border-radius: 10px
+
+.s-top-up__btn
+  margin-top: 33px
+
+.s-promo
+  padding: 0 0 50px 0
+
+.s-promo__inner
+  padding: 30px 100px 30px 20px
+  background: #1B2236
+  position: relative
+  border-radius: 10px
+  &::before
+    content: ""
+    pointer-events: none
+    background-image: url(../images/dist/chips-2.png)
+    width: pxrem(274px)
+    height: pxrem(199px)
+    position: absolute
+    top: -100px
+    right: 40px
+    display: block
+    background-size: contain
+    background-position: center
+
+.s-promo__row
+  align-items: center
+  justify-content: space-between
+
+.s-promo__col--left
+  @include col7
+
+
+
+
+.s-faq
+  padding: 50px 0
+  @include radial-bg(0, auto, auto, 10%)
+
+.s-faq__h3
+  text-align: center
+  margin-bottom: 40px
+
+.s-faq__item
+  background-color: #1B2236
+  cursor: pointer
+  padding: 20px 56px 20px 20px
+  margin-bottom: 30px
+  position: relative
+  &.active
+    &::after
+      transform: rotate(180deg)
+  &::after
+    content: ""
+    transition: transform .3s ease
+    position: absolute
+    right: 20px
+    top: 25px
+    //transform: translateY(-50%)
+    width: pxrem(24px)
+    height: pxrem(24px)
+    background-image: url(../images/dist/faq-arrow-1.svg)
+
+.s-faq__list
+  @include nlist
+
+//.s-faq__question
+//  margin-bottom: 15px
+
+.s-faq__ask
+  margin-bottom: 0
+  display: none
+  margin-top: 15px
+
+.s-faq__item
+  border-radius: 10px
+
+
+.s-download
+  padding: 50px 0 100px
+  background-image: url(../images/dist/download-1.svg)
+  background-size: contain
+  background-position: 15% 50%
+  background-repeat: no-repeat
+
+.s-download__h3
+  margin-bottom: 30px
+  text-align: center
+
+.s-download__col--left
+  @include col6
+
+.s-download__col--right
+  @include col6
+
+
+
+.s-download__list
+  display: flex
+  @include nlist
+  margin: 30px auto
+  text-align: center
+  max-width: 200px
+  justify-content: space-between
+
+.s-download__img
+  width: 40px
+  height: 40px
+  object-fit: contain
+  margin-bottom: 8px
+
+.s-download__desc
+  margin: 0
+  line-height: 1.4
+
+.s-download__text
+  @include textgradient
+  margin: 0
+
+@media screen and (max-width: 1400px)
+  html
+    font-size: 14px
+
+@media screen and (max-width: 1200px)
+  .container.--l-offs
+    margin: 0
+
+@media screen and (max-width: 992px)
+  .s-reg__col, .s-exp__col, .s-promo__col
+    @include col12
+
+@media screen and (max-width: 768px)
+  .header__menu-list
+    display: block
+    padding: 20px 0
+    position: absolute
+    top: 100%
+    left: 0
+    width: 100%
+    text-align: center
+    background-color: #181D2C
+    transition: transform .3s ease
+    transform: translateX(100%)
+    &.active
+      transform: translateX(0%)
+  .header__menu-item
+    margin-bottom: 20px
+    font-size: 17px
+    &:last-child
+      margin-top: 30px
+      margin-bottom: 0
+  .header__btn-outer
+    display: none
+  .header__btn-outer--mobile
+    display: inline-block
+  .header__logo-img
+    width: 80px
+    height: 40px
+    object-fit: cover
+    object-position: left
+  .header
+    padding: 10px 0
+  .s-main__row
+    display: block
+  .s-main__col
+    margin-bottom: 20px
+  .s-about
+    background-image: url(../images/dist/about-2.png)
+  .s-play__col
+    @include col6
+  .s-about__col
+    @include col12
+  .s-about
+    background-size: auto auto
+    background-position: 122% 108%
+    padding-bottom: 70px
+  .s-about:before
+    display: none
+  .s-reg:before
+    display: none
+  .footer__col--logo, .footer__col--menu
+    margin-right: 0
+  .footer__col--logo
+    @include col12
+  .footer__col--menu
+    @include col6
+  .footer__pay-list
+    justify-content: center
+  .footer__col--right
+    @include col12
+    text-align: center
+  .footer
+    padding-bottom: 100px
+    background-position: 50% 100%
+  .s-download
+    background: none
+  .s-faq:before
+    display: none
+  .s-use-promo
+    background: none
+
+@media screen and (max-width: 576px)
+  body
+    background-color: #10151C
+  body:after
+    display: none
+  .h2
+    font-size: 30pxgulp
+  .h3
+    font-size: 25px
+  .h4
+    font-size: 20px
+  .footer__copyright
+    margin-top: 55px
+    font-size: 10px
+  .footer__col--menu
+    margin-bottom: 0
+  .footer__col--logo
+    margin-top: 0
+  .footer__col--right
+    margin-top: 0
+  .s-top-up__text
+    font-weight: 600
+  .s-exp__text
+    font-weight: 600
+  .s-about__text
+    font-weight: 600
+    margin-bottom: 0
+  .s-reg__h2
+    font-size: 25px
+    max-width: 293px
+    margin-left: auto
+    margin-right: auto
+  .s-faq__ask
+    font-weight: 600
+  .btn
+    font-size: 17px
+  .promocode__input
+    font-size: 40px
+    padding: 5px 8px
+  .footer__pay-list
+    margin-top: 30px
+  .promocode__btn
+    font-size: 22px
+  .s-play__h4
+    font-size: 25px
+  .s-top-up__method-number
+    font-size: 20px
+    margin-top: 5px
+  .s-play__col
+    @include col12
+  .s-use-promo__number
+    font-size: 70px
+  .s-top-up__method-list
+    justify-content: center
+    &.--small-mob
+      max-width: 180px
+  .s-download__col--left
+    @include col12
+  .s-download__col--right
+    display: none
+  .s-main__card
+    padding: 30px 10px
+  .s-main__btn
+    margin-top: 30px
+  .s-main
+    padding-bottom: 10px
+    //.promocode
+    //  margin-top: 30px
+  .s-games
+    padding: 10px 0 25px
+  .s-about
+    padding-top: 25px
+  .s-exp__item:before
+    width: 50px
+    height: 50px
+    margin-right: 20px
+  .s-exp__item
+    margin-bottom: 20px
+  .s-exp__h4
+    margin-left: auto
+    margin-right: auto
+    margin-bottom: 20px
+    //max-width: 286px
+  .s-exp__h5
+    margin-bottom: 10px
+  .s-exp
+    padding-bottom: 25px
+  .s-reg
+    padding: 25px 0 25px
+  .s-use-promo
+    padding: 25px 0 25px
+  .s-play__row
+    margin-top: 90px
+  .s-use-promo__img
+    display: none
+  .s-use-promo__h3
+    margin-bottom: 20px
+  .s-use-promo__text
+    margin-bottom: 20px
+  .s-use-promo__number
+    margin-bottom: 0
+  .s-use-promo__row
+    justify-content: center
+  .s-use-promo__promocode
+    margin-top: 0
+  .s-use-promo__col--left
+    display: flex
+    flex-direction: column-reverse
+  .s-play__inner
+    padding: 17px 20px
+  .s-top-up
+    padding: 25px 0
+  .s-top-up__h3
+    margin-bottom: 20px
+  .s-top-up__h4
+    margin: 20px 0 20px
+    font-size: 25px
+  .s-top-up__small
+    margin-top: 20px
+  .s-top-up__instruction-item:before
+    font-size: 14px
+    font-weight: 600
+    width: 25px
+    border-radius: 2px
+    height: 25px
+  .s-top-up__instruction-item
+    margin-bottom: 12px
+    font-weight: 600
+  .s-top-up__h5
+    &.--s-m-t
+      margin-top: 20px
+    &.--small-mob
+      font-size: 20px
+      margin: 30px 0 20px
+  .s-top-up__small
+    font-size: 12px
+  .s-promo__inner:before
+    display: none
+  .s-promo__col
+    @include col12
+  .s-promo__inner
+    padding: 20px
+  .s-promo
+    padding: 25px 0 25px
+  .s-faq
+    padding: 25px 0 25px
+  .s-faq__h3
+    margin-bottom: 20px
+  .s-faq__item
+    padding: 10px 56px 10px 10px
+    &:last-child
+      margin-bottom: 0
+  .s-download__h3
+    margin-bottom: 20px
+  .s-download__list
+    margin: 20px auto 30px
+  .s-faq__item:after
+    top: 11px
+  .s-download
+    padding: 25px 0 50px
+  .s-reg__inner
+    position: relative
+    padding: 20px 15px
+  .s-reg__number
+    margin-top: 0
+    top: 24px
+    left: 26px
+    position: absolute
+  .s-reg__h4
+    padding-left: 60px
+    min-height: 3rem
+    margin-bottom: 2rem
+  .s-reg__img
+    margin-top: 10px
+  .hide-mob
+    display: none
+
+@media screen and (min-width: 576px)
+  .s-reg__br
+    display: none
+  .show-mob
+    display: none
+
+@media screen and (min-width: 768px)
+  .hamburger
+    display: none
+  .header__menu-btn
+    display: none

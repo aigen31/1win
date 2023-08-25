@@ -1,0 +1,219 @@
+@use 'sass:math'
+
+// USER VARIABLES SECTION
+
+$accent: #9ECA66 // Accent Color
+//$fontsize: 16px // Body Font Size
+//$textcolor: #333 // Text Color
+//$lineheight: 1.65 // Document Line Height
+//$userfont: roboto-oh5, sans-serif // User Font Family
+//$systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
+$hdcolor: #1B2236
+$rem: 17px
+$gradient: linear-gradient(136deg, #9ECA66 0%, rgba(95, 185, 174, 0.74) 100%)
+$hamburger-layer-color: #fff
+$hamburger-layer-width: 20px
+$hamburger-layer-height: 2px
+//$hamburger-layer-spacing: 3px
+
+
+// Bootstrap compatible gutter variable => $gutter
+//$grid-gutter-width: 30px
+//$gutter: $grid-gutter-width
+
+// IMPORT SECTION
+
+//@import 'node_modules/bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
+//@import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
+// @import 'node_modules/bootstrap/scss/bootstrap-grid.scss' // Optional Bootstrap Grid
+// @import 'node_modules/bootstrap/scss/_utilities.scss' // Optional Bootstrap Utilites
+
+// FONTS LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furl)
+	@font-face
+		font-family: $fname
+		font-style: $fstyle
+		font-weight: $fweight
+		src: url($furl) format('woff2')
+
+$padding-y: 0
+$padding-x: 10px
+
+$colmargin: 20px
+$colpadding: $padding-y $padding-x
+
+$c-padding-y: 0
+$c-padding-x: 20px
+
+$c-width: 1177px
+
+.row
+	display: flex
+	margin: 0 calc($padding-x * -1) calc($colmargin * -1)
+	&.--wrap
+		flex-wrap: wrap
+	&.--b-gap-0
+		.col
+			margin-bottom: 0
+
+.col
+	padding: $padding-y $padding-x
+	margin-bottom: $colmargin
+
+@mixin c-padding()
+	padding: $c-padding-y $c-padding-x
+
+@mixin c-nopadding()
+	margin: calc($c-padding-y * -1) calc($c-padding-x * -1)
+
+@mixin radial-bg($top, $right, $bottom, $left)
+	position: relative
+	&::before
+		content: ""
+		position: absolute
+		display:  block
+		top: $top
+		right: $right
+		bottom: $bottom
+		left: $left
+		width: pxvh(478)
+		height: pxvh(478)
+		background: rgba(103, 33, 191, 0.20)
+		filter: blur(100px)
+		z-index: -1
+
+@mixin container($width)
+	.container
+		max-width: $width
+		width: 100%
+		margin: auto
+		@include c-padding
+		&.-fluid
+			max-width: 100%
+		&.--l-offs
+			margin: 0
+			width: auto
+			max-width: none !important
+			margin-left: calc(100% / 2 - ($width / 2))
+			padding-right: 0
+
+@mixin res-container($width)
+	.container
+		max-width: $width
+		&.--l-offs
+			margin-left: calc(100% / 2 - ($width / 2))
+
+@mixin colgap()
+	margin-bottom: $colmargin
+	padding: $colpadding
+
+@mixin colopt($width)
+	flex: 0 1 $width
+	//@include colgap
+
+@mixin col1()
+	flex: 0 1 8.3%
+	//@include colgap
+
+@mixin col2()
+	flex: 0 1 16.6%
+	//@include colgap
+
+@mixin col3()
+	flex: 0 1 25%
+	//@include colgap
+
+@mixin col4()
+	flex: 0 1 33.3%
+	//@include colgap
+
+@mixin col5()
+	flex: 0 1 41.6%
+	//@include colgap
+
+@mixin col6()
+	flex: 0 1 50%
+	//@include colgap
+
+@mixin col7()
+	flex: 0 1 58.3%
+	//@include colgap
+
+@mixin col8()
+	flex: 0 1 66.6%
+	//@include colgap
+
+@mixin col9()
+	flex: 0 1 83.3%
+	//@include colgap
+
+@mixin col10()
+	flex: 0 1 75%
+	//@include colgap
+
+@mixin col11()
+	flex: 0 1 91%
+	//@include colgap
+
+@mixin col12()
+	flex: 0 1 100%
+	//@include colgap
+
+@mixin nlist()
+	list-style-type: none
+	margin: 0
+	padding: 0
+
+@mixin bgimg($url)
+	background-size: contain
+	background-position: center
+	background-repeat: no-repeat
+	background-image: url($url)
+
+@mixin textgradient()
+	background: $gradient
+	-webkit-background-clip: text
+	-webkit-text-fill-color: transparent
+
+@function pxvw($px)
+	@return calc($px / 1920 * 100vw)
+
+@function pxvh($px)
+	@return calc($px / 1080 * 100vh)
+
+@function pxem($px)
+	@return calc($px / $rem * 1em)
+
+@function pxrem($px)
+	@return calc($px / $rem * 1rem)
+
+//@include font('roboto-oh5', normal, 400, '../fonts/roboto-regular-webfont.woff2')
+//@include font('roboto-oh5', italic, 400, '../fonts/roboto-italic-webfont.woff2')
+//@include font('roboto-oh5', normal, 700, '../fonts/roboto-bold-webfont.woff2')
+//@include font('roboto-oh5', italic, 700, '../fonts/roboto-bolditalic-webfont.woff2')
+
+// GENERAL CSS SETTINGS
+
+//::placeholder
+//	color: #666
+//
+//::selection
+//	background-color: $accent
+//	color: #fff
+
+//input, textarea
+//	outline: none
+//	&:focus:required:invalid
+//		border-color: red
+//	&:required:valid
+//		border-color: green
+//
+//body
+//	font-family: $userfont
+//	font-size: $fontsize
+//	line-height: $lineheight
+//	color: $textcolor
+//	min-width: 320px
+//	position: relative
+//	overflow-x: hidden

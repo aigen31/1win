@@ -37,6 +37,41 @@ body
   *
     box-sizing: border-box
 
+.page
+  &-game
+    .s-about
+      --width: 555px
+      background-position: calc(100% / 2 - ($c-width / 2) + $c-width - (var(--width) / 2)) 100px
+      background-size: var(--width) auto
+    .s-use-promo
+      --width: 355px
+      background-position: calc(100% / 2 - ($c-width / 2) + $c-width - (var(--width) / 2) + 50px) 50%
+      background-repeat: no-repeat
+      background-size: var(--width) auto
+    .s-promo
+      margin-top: 100px
+    .s-reg:before
+      top: 50%
+  &-lucky-get
+    .s-main__card
+      background-color: transparent
+    .s-main__card--left, .s-main__card--right
+      background-size: contain
+  &-rocket-x
+    .s-use-promo
+      --width: 225px
+  &-speed-and-crush
+    .s-use-promo
+      --width: 355px
+  &-speed-and-crash
+    .s-use-promo
+      --width: 355px
+  &-aviator
+    .s-use-promo
+      background-size: contain
+      background-position: 100% 0
+
+
 @include container($c-width)
 
 .h2, .h3, .h4, .h5
@@ -212,7 +247,7 @@ a
 .s-main__card
   border-radius: 10px
   padding: pxrem(30px) pxrem(20px)
-  background-image: url(../images/dist/card-1.png)
+  //background-image: url(../images/dist/card-1.png)
   background-color: rgba(lightgray, 0.04)
   background-blend-mode: overlay
   background-repeat: no-repeat
@@ -273,7 +308,6 @@ a
   @include col6
 
 .s-about
-  background-image: url(../images/dist/about-composition.png)
   background-position: 60% 0
   background-repeat: no-repeat
   background-size: contain
@@ -287,6 +321,8 @@ a
 .s-about__text
   line-height: 1.4
   margin-top: 0
+  &:last-child
+    margin-bottom: 0
 
 .s-exp
   padding-bottom: 50px
@@ -386,7 +422,7 @@ a
   line-height: 1.4
   margin: 0
 
-.s-use-promo__promocode
+.s-use-promo__col--right
   margin-top: 50px
 
 //.s-use-promo__col--right
@@ -648,6 +684,13 @@ a
 @media screen and (max-width: 1200px)
   .container.--l-offs
     margin: 0
+  .page
+    &-game
+      .s-about
+        background-image: none !important
+        padding-bottom: 70px
+      .s-about__col
+        @include col12
 
 @media screen and (max-width: 992px)
   .s-reg__col, .s-exp__col, .s-promo__col
@@ -688,16 +731,16 @@ a
     display: block
   .s-main__col
     margin-bottom: 20px
-  .s-about
-    background-image: url(../images/dist/about-2.png)
   .s-play__col
     @include col6
   .s-about__col
     @include col12
-  .s-about
-    background-size: auto auto
-    background-position: 122% 108%
-    padding-bottom: 70px
+  .page-home
+    .s-about
+      background-image: url(../images/dist/about-2.png) !important
+      background-size: auto auto
+      background-position: 122% 108%
+      padding-bottom: 70px
   .s-about:before
     display: none
   .s-reg:before
@@ -721,7 +764,7 @@ a
   .s-faq:before
     display: none
   .s-use-promo
-    background: none
+    background: none !important
 
 @media screen and (max-width: 576px)
   body
@@ -826,7 +869,7 @@ a
     margin-bottom: 0
   .s-use-promo__row
     justify-content: center
-  .s-use-promo__promocode
+  .s-use-promo__col--right
     margin-top: 0
   .s-use-promo__col--left
     display: flex

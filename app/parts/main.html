@@ -1,8 +1,8 @@
 <section class="s-main">
   <div class="container">
     <div class="s-main__row row">
-      <div class="s-main__col col s-main__col--left">
-        <div class="s-main__card">
+      <div class="s-main__col col s-main__col--left s-main__col-custom<!--#echo var="main-bg-prefix" -->">
+        <div class="s-main__card s-main__card--left" style="background-image: url(<!--#echo var="main-bg--left" -->)">
           <h2 class="h2 s-main__h2">
             1win Betting in India – Register to Official Website with Bonus<br>
             <span>Up to ₹80,400</span>
@@ -20,15 +20,12 @@
 
       </div>
       <div class="s-main__col col s-main__col--right">
-        <div class="s-main__card s-main__card--right">
+        <div class="s-main__card s-main__card--right s-main__col-custom<!--#echo var="main-bg-prefix" -->" style="background-image: url(<!--#echo var="main-bg--right" -->)">
           <h2 class="h2 s-main__h2">
             To get a 500%WELCOME BONUS
           </h2>
 
-          <div class="promocode">
-            <input type="text" value="1WSTART" class="promocode__input" readonly>
-            <button class="promocode__btn">Copy</button>
-          </div>
+          <!--#include virtual="/parts/promocode-field.html" -->
         </div>
 
       </div>

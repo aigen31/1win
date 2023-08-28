@@ -36,7 +36,7 @@ function browsersync() {
 		ghostMode: { clicks: false },
 		notify: false,
 		online: true,
-		tunnel: 'evbilweb', // Attempt to use the URL https://yousutename.loca.lt
+		// tunnel: 'evbilweb', // Attempt to use the URL https://yousutename.loca.lt
 	})
 }
 

@@ -41,7 +41,7 @@ body
   &-game
     .s-about
       --width: 555px
-      background-position: calc(100% / 2 - ($c-width / 2) + $c-width - (var(--width) / 2)) 100px
+      background-position: calc(100% / 2 - ($c-width / 2) + $c-width - (var(--width) / 2)) 115px
       background-size: var(--width) auto
     .s-use-promo
       --width: 355px
@@ -246,7 +246,7 @@ a
 
 .s-main__card
   border-radius: 10px
-  padding: pxrem(30px) pxrem(20px)
+  padding: 30px 20px
   //background-image: url(../images/dist/card-1.png)
   background-color: rgba(lightgray, 0.04)
   background-blend-mode: overlay
@@ -260,7 +260,8 @@ a
   flex-direction: column
   align-items: flex-start
   justify-content: space-between
-  padding: 30px 10px
+  //padding: 30px 10px
+  padding: 20px 20px
 
 .promocode
   display: inline-flex
@@ -383,14 +384,14 @@ a
   margin: 0
 
 .s-reg__img
-  margin-top: pxrem(20px)
+  margin-top: 20px
   
 .s-reg__inner
   display: flex
   background-color: #131926
   height: inherit
   border-radius: inherit
-  padding: pxrem(30px) pxrem(60px) pxrem(23px) pxrem(30px)
+  padding: 30px 60px 23px 30px
 
 .s-reg__number
   width: 50px
@@ -463,7 +464,8 @@ a
   text-align: center
 
 .s-play__inner
-  padding: 30px 15px
+  //padding: 30px 15px
+  padding: 30px 20px
   display: flex
   flex-direction: column
   align-items: center
@@ -826,8 +828,8 @@ a
     @include col12
   .s-download__col--right
     display: none
-  .s-main__card
-    padding: 30px 10px
+  //.s-main__card
+  //  padding: 30px 10px
   .s-main__btn
     margin-top: 30px
   .s-main

@@ -43,13 +43,15 @@ body
       --width: 555px
       background-position: calc(100% / 2 - ($c-width / 2) + $c-width - (var(--width) / 2)) 115px
       background-size: var(--width) auto
-    .s-use-promo
-      --width: 355px
-      background-position: calc(100% / 2 - ($c-width / 2) + $c-width - (var(--width) / 2) + 50px) 50%
-      background-repeat: no-repeat
-      background-size: var(--width) auto
+    //.s-use-promo
+    //  --width: 355px
+    //  background-position: calc(100% / 2 - ($c-width / 2) + $c-width - (var(--width) / 2) + 50px) 50%
+    //  background-repeat: no-repeat
+    //  background-size: var(--width) auto
     .s-promo
       margin-top: 100px
+    .s-reg
+      padding-bottom: 0
     .s-reg:before
       top: 50%
   &-lucky-get
@@ -57,19 +59,19 @@ body
       background-color: transparent
     .s-main__card--left, .s-main__card--right
       background-size: contain
-  &-rocket-x
-    .s-use-promo
-      --width: 225px
-  &-speed-and-crush
-    .s-use-promo
-      --width: 355px
-  &-speed-and-crash
-    .s-use-promo
-      --width: 355px
-  &-aviator
-    .s-use-promo
-      background-size: contain
-      background-position: 100% 0
+  //&-rocket-x
+  //  .s-use-promo
+  //    --width: 225px
+  //&-speed-and-crush
+  //  .s-use-promo
+  //    --width: 355px
+  //&-speed-and-crash
+  //  .s-use-promo
+  //    --width: 355px
+  //&-aviator
+  //  .s-use-promo
+  //    background-size: contain
+  //    background-position: 100% 0
 
 
 @include container($c-width)

@@ -12,11 +12,14 @@
 <p>Далее установим Gulp глобально:</p>
 <pre>npm i gulp -g</pre>
 
+
 <h3>Основные команды</h3>
 <p>Запуск Gulp (запустится сервер, который откроет локальную страницу и будет синхронизировать её, так же много других автоматизаций):</p>
 <pre>gulp</pre>
 <p>Создание билда для продакшн (находится в папке "dist"):</p>
 <pre>gulp build</pre>
+<p><a href="#deploy">Деплой (загрузка вёрстки на хостинг)</a>:</p>
+<pre>gulp deploy</pre>
 
 <h2>Файлы для редактирования</h2>
 <h3>Как редактировать HTML?</h3>
@@ -38,3 +41,28 @@
 <h3>Где находится JS?</h3>
 <p>JS находится по пути:</p>
 <pre>app/js/app.js</pre>
+
+<h2 id="deploy">Деплой (загрузка на хостинг)</h2>
+<h3>Лёгкий способ</h3>
+<p>Скопируйте содержимое папки "dist" на хостинг.</p>
+<h3>Посложнее (для автоматизации)</h3>
+<p>В корневом файле gulpfile.js, строке 124 есть функция:</p>
+<pre>
+    function deploy() {
+        return src('dist/')
+            .pipe(rsync({
+                root: 'dist/',
+                hostname: 'username@yousite.com',
+                destination: 'yousite/public_html/',
+                clean: true, // Mirror copy with file deletion
+                include: [/* '*.htaccess' */], // Included files to deploy,
+                exclude: [ '**/Thumbs.db', '**/*.DS_Store' ],
+                recursive: true,
+                archive: true,
+                silent: false,
+                compress: true
+    }))
+}
+</pre>
+<p>В ней мы изменяем данные для FTP подключения, чтобы автоматически копировать файлы на хост с помощью команды:</p>
+<pre>gulp deploy</pre>

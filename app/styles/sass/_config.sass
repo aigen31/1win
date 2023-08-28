@@ -1,34 +1,13 @@
 @use 'sass:math'
 
-// USER VARIABLES SECTION
-
-$accent: #9ECA66 // Accent Color
-//$fontsize: 16px // Body Font Size
-//$textcolor: #333 // Text Color
-//$lineheight: 1.65 // Document Line Height
-//$userfont: roboto-oh5, sans-serif // User Font Family
-//$systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
+// Объявление переменных
+$accent: #9ECA66
 $hdcolor: #1B2236
 $rem: 17px
 $gradient: linear-gradient(136deg, #9ECA66 0%, rgba(95, 185, 174, 0.74) 100%)
 $hamburger-layer-color: #fff
 $hamburger-layer-width: 20px
 $hamburger-layer-height: 2px
-//$hamburger-layer-spacing: 3px
-
-
-// Bootstrap compatible gutter variable => $gutter
-//$grid-gutter-width: 30px
-//$gutter: $grid-gutter-width
-
-// IMPORT SECTION
-
-//@import 'node_modules/bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
-//@import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
-// @import 'node_modules/bootstrap/scss/bootstrap-grid.scss' // Optional Bootstrap Grid
-// @import 'node_modules/bootstrap/scss/_utilities.scss' // Optional Bootstrap Utilites
-
-// FONTS LOAD SECTION
 
 @mixin font($fname, $fstyle, $fweight, $furl)
 	@font-face
@@ -48,6 +27,7 @@ $c-padding-x: 20px
 
 $c-width: 1177px
 
+// Стили сетки
 .row
 	display: flex
 	margin: 0 calc($padding-x * -1) calc($colmargin * -1)
@@ -110,55 +90,42 @@ $c-width: 1177px
 
 @mixin colopt($width)
 	flex: 0 1 $width
-	//@include colgap
 
 @mixin col1()
 	flex: 0 1 8.3%
-	//@include colgap
 
 @mixin col2()
 	flex: 0 1 16.6%
-	//@include colgap
 
 @mixin col3()
 	flex: 0 1 25%
-	//@include colgap
 
 @mixin col4()
 	flex: 0 1 33.3%
-	//@include colgap
 
 @mixin col5()
 	flex: 0 1 41.6%
-	//@include colgap
 
 @mixin col6()
 	flex: 0 1 50%
-	//@include colgap
 
 @mixin col7()
 	flex: 0 1 58.3%
-	//@include colgap
 
 @mixin col8()
 	flex: 0 1 66.6%
-	//@include colgap
 
 @mixin col9()
 	flex: 0 1 83.3%
-	//@include colgap
 
 @mixin col10()
 	flex: 0 1 75%
-	//@include colgap
 
 @mixin col11()
 	flex: 0 1 91%
-	//@include colgap
 
 @mixin col12()
 	flex: 0 1 100%
-	//@include colgap
 
 @mixin nlist()
 	list-style-type: none
@@ -176,44 +143,19 @@ $c-width: 1177px
 	-webkit-background-clip: text
 	-webkit-text-fill-color: transparent
 
+// Перевод фиксированных единиц в относительные
+// PX в VW
 @function pxvw($px)
 	@return calc($px / 1920 * 100vw)
 
+// PX в VH
 @function pxvh($px)
 	@return calc($px / 1080 * 100vh)
 
+// PX в EM
 @function pxem($px)
 	@return calc($px / $rem * 1em)
 
+// PX в REM
 @function pxrem($px)
 	@return calc($px / $rem * 1rem)
-
-//@include font('roboto-oh5', normal, 400, '../fonts/roboto-regular-webfont.woff2')
-//@include font('roboto-oh5', italic, 400, '../fonts/roboto-italic-webfont.woff2')
-//@include font('roboto-oh5', normal, 700, '../fonts/roboto-bold-webfont.woff2')
-//@include font('roboto-oh5', italic, 700, '../fonts/roboto-bolditalic-webfont.woff2')
-
-// GENERAL CSS SETTINGS
-
-//::placeholder
-//	color: #666
-//
-//::selection
-//	background-color: $accent
-//	color: #fff
-
-//input, textarea
-//	outline: none
-//	&:focus:required:invalid
-//		border-color: red
-//	&:required:valid
-//		border-color: green
-//
-//body
-//	font-family: $userfont
-//	font-size: $fontsize
-//	line-height: $lineheight
-//	color: $textcolor
-//	min-width: 320px
-//	position: relative
-//	overflow-x: hidden

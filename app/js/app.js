@@ -25,19 +25,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 $(document).ready(function () {
     function copyToClipboard(text) {
-        var textArea = document.createElement( "textarea" );
+        var textArea = document.createElement("textarea");
         textArea.value = text;
-        document.body.appendChild( textArea );
+        document.body.appendChild(textArea);
         textArea.select();
 
         try {
-            var successful = document.execCommand( 'copy' );
+            var successful = document.execCommand('copy');
             var msg = successful ? 'successful' : 'unsuccessful';
             console.log('Copying text command was ' + msg);
         } catch (err) {
-            console.log('Oops, unable to copy',err);
+            console.log('Oops, unable to copy', err);
         }
-        document.body.removeChild( textArea );
+        document.body.removeChild(textArea);
     }
 
     $('#hamburger').click(function () {
@@ -50,7 +50,7 @@ $(document).ready(function () {
         $.toast('Code copied to clipboard!')
     })
 
-    $('.s-games__container').css('margin-right', )
+    $('.s-games__container').css('margin-right',)
 
     for (let i = 0; i <= $('.s-reg__number').length; i++) {
         $('.s-reg__number').eq(i).text(i + 1)
